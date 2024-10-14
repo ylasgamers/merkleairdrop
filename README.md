@@ -1,3 +1,8 @@
+- addrlist.txt & airdrop.csv [ For Input The List Address & Amount Of Token Can Claim Airdrop ]
+- get_root.py [ For Get Merkle Root ]
+- get_proof.py [ For Get Proof Data Claim Airdrop Users ]
+- merkleairdrop.sol [ For Deployed Smartcontract Claim Airdrop Onchain ]
+
 - Recomended Using Python 3.10
 - For Windows [Download Here](https://www.python.org/downloads/release/python-3100/) [Scrool Down]
 - Maybe For Windows 10 Or Higher You Can Install Python 3.10 From Microsoft Store
