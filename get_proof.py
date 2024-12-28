@@ -29,9 +29,19 @@ def proof(address: bytes, airdrop_file_name: str) -> None:
     except KeyError as e:
         print(f"Error: {e}")
 
-# Load addresses from file and generate proofs for each
-with open('addrlist.txt', 'r') as file:
-    listaddr = file.read().splitlines()
-    for addrlist in listaddr:
-        addr = bytes.fromhex(addrlist[2:])  # Strip '0x' and convert to bytes
-        proof(addr, 'airdrop.csv')
+# Load addresses from 'airdrop.csv' and generate proofs for each
+def load_addresses_from_csv(file_name):
+    addresses = []
+    with open(file_name, 'r') as file:
+        for line in file:
+            address, _ = line.strip().split(',')  # We only need the address part
+            # Remove the '0x' and convert to bytes
+            addresses.append(bytes.fromhex(address[2:]))  
+    return addresses
+
+# Load addresses from 'airdrop.csv'
+addresses = load_addresses_from_csv('airdrop.csv')
+
+# Generate proof for each address
+for addr in addresses:
+    proof(addr, 'airdrop.csv')
